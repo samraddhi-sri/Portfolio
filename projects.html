@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #111827;
+      --text: #ffffff;
+      --muted: #cbd5f5;
+      --accent: #5cff3d;
+      --border: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* ---------- NAVBAR (optional, you can edit links) --------- */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(17,24,39,0.95);
+      padding: 1.1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(6px);
+      z-index: 20;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: #d1d5db;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: var(--accent);
+    }
+
+    /* ---------- PROJECTS MAIN SECTION ---------- */
+    .projects-container {
+      max-width: 1100px;
+      margin: 3rem auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .projects-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .projects-subtitle {
+      color: var(--muted);
+      margin-bottom: 2.2rem;
+      font-size: 0.98rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .project-card {
+      background: #0f172a;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      transition: 0.25s;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 0 18px rgba(92, 255, 61, 0.45);
+    }
+
+    .project-tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .project-links a {
+      font-size: 0.9rem;
+      text-decoration: none;
+      margin-right: 1rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .projects-container {
+        padding: 0 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <div class="logo">Portfolio</div>
+      <div class="nav-links">
+        <!-- yahan apne pages ke actual naam/links daal sakti ho -->
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PROJECTS CONTENT -->
+  <main class="projects-container">
+    <h1 class="projects-title">Projects</h1>
+    <p class="projects-subtitle">
+      Here are some of my real-world projects. Click any project to open it.
+    </p>
+
+    <div class="projects-grid" id="projectsGrid"></div>
+  </main>
+
+  <!-- ---------- JS: sirf yahan data change karna hai ---------- -->
+  <script>
+    // 🟢 YAHAN BAS APNE PROJECT ADD KARTE JAO
+    // Har object = 1 project
+    const projects = [
+      {
+        title: "Expense Tracker App",
+        tag: "Backend",
+        desc: "Track daily expenses with authentication, categories and analytics dashboard.",
+        link: "https://your-expense-tracker-link.com",
+        github: "https://github.com/your-username/expense-tracker"
+      },
+      {
+        title: "AI Spam Detector",
+        tag: "AI / ML",
+        desc: "Machine learning model to classify messages as spam or not spam using NLP.",
+        link: "https://your-ml-demo-link.com",
+        github: "https://github.com/your-username/spam-detector"
+      },
+      {
+        title: "Portfolio Website",
+        tag: "Frontend",
+        desc: "Responsive personal portfolio built using HTML, CSS and JavaScript.",
+        link: "https://your-portfolio-live-link.com",
+        github: "https://github.com/your-username/portfolio"
+      }
+    ];
+
+    // 🟢 YE CODE CARDS KO AUTO BANAYEGA
+    const grid = document.getElementById("projectsGrid");
+
+    projects.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "project-card";
+      card.onclick = () => {
+        if (p.link) window.open(p.link, "_blank");
+      };
+
+      card.innerHTML = `
+        <div class="project-tag">${p.tag || ""}</div>
+        <h2 class="project-title">${p.title}</h2>
+        <p class="project-desc">${p.desc}</p>
+        <div class="project-links">
+          ${p.link ? `<a href="${p.link}" target="_blank">Live Demo</a>` : ""}
+          ${p.github ? `<a href="${p.github}" target="_blank">GitHub</a>` : ""}
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>

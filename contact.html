@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- Agar tumhari common style.css hai to ye bhi add kar sakti ho -->
+  <!-- <link rel="stylesheet" href="style.css"> -->
+
+  <style>
+    :root {
+      --bg: #111827;
+      --text: #ffffff;
+      --muted: #cbd5f5;
+      --accent: #5cff3d;
+      --border: #1f2937;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:"Poppins",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+    }
+    header {
+      position:sticky; top:0;
+      background:rgba(17,24,39,0.95);
+      backdrop-filter:blur(6px);
+      border-bottom:1px solid var(--border);
+      padding:1.1rem 2rem;
+      z-index:50;
+    }
+    nav {
+      max-width:1200px; margin:auto;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .logo { font-size:1.4rem; font-weight:700; }
+    .nav-links a {
+      margin-left:2rem; text-decoration:none;
+      color:#d1d5db; font-size:0.95rem; transition:0.2s;
+    }
+    .nav-links a:hover, .nav-links .active { color:var(--accent); }
+
+    .contact-container {
+      max-width:1100px; margin:3rem auto 4rem;
+      padding:0 2rem;
+      display:grid; grid-template-columns:1fr 1fr; gap:2.5rem;
+    }
+    .contact-title { font-size:2.4rem; font-weight:700; margin-bottom:0.5rem; }
+    .contact-subtitle { color:var(--accent); margin-bottom:1.5rem; }
+    .contact-text { color:var(--muted); line-height:1.7; margin-bottom:1.8rem; }
+    .info-row { margin-bottom:0.7rem; font-size:0.95rem; }
+    .info-label { color:var(--muted); }
+    .info-value { font-weight:500; }
+    .social-links { display:flex; flex-wrap:wrap; gap:0.8rem; margin-top:0.5rem;}
+    .social-links a {
+      text-decoration:none; padding:0.4rem 0.8rem;
+      border-radius:999px; border:1px solid var(--border);
+      font-size:0.85rem; color:var(--muted); transition:0.2s;
+    }
+    .social-links a:hover {
+      border-color:var(--accent); color:var(--accent);
+      box-shadow:0 0 10px rgba(92,255,61,0.4);
+    }
+    .contact-form-wrapper {
+      background:#020617; border-radius:1.1rem;
+      border:1px solid var(--border);
+      padding:2rem 1.8rem;
+      box-shadow:0 0 25px rgba(0,0,0,0.5);
+    }
+    .form-title { font-size:1.4rem; margin-bottom:0.3rem; }
+    .form-subtext { color:var(--muted); font-size:0.9rem; margin-bottom:1.5rem; }
+    .form-group { margin-bottom:1.1rem; }
+    label { display:block; font-size:0.9rem; margin-bottom:0.3rem; }
+    input, textarea {
+      width:100%; padding:0.65rem 0.75rem;
+      border-radius:0.6rem; border:1px solid var(--border);
+      background:#020617; color:var(--text);
+      font-family:inherit; font-size:0.95rem;
+      outline:none; transition:0.2s;
+    }
+    input:focus, textarea:focus {
+      border-color:var(--accent);
+      box-shadow:0 0 12px rgba(92,255,61,0.4);
+    }
+    textarea { resize:vertical; min-height:120px; }
+    .form-row { display:flex; gap:1rem; }
+    .form-row .form-group { flex:1; }
+    .btn-submit {
+      margin-top:0.5rem; padding:0.7rem 1.6rem;
+      background:var(--accent); border-radius:0.7rem;
+      border:none; font-weight:600; font-size:0.95rem;
+      cursor:pointer; color:#000; transition:0.2s;
+    }
+    .btn-submit:hover { background:#4cff2f; transform:translateY(-1px); }
+    .status-message { margin-top:0.8rem; font-size:0.9rem; }
+    .status-success { color:#4ade80; }
+    .status-error { color:#f97373; }
+
+    @media(max-width:900px){
+      .contact-container{grid-template-columns:1fr;}
+    }
+    @media(max-width:600px){
+      .contact-container{padding:0 1.2rem;}
+      header{padding-inline:1.2rem;}
+      .nav-links a{margin-left:1.2rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Portfolio</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="project.html">Projects</a>
+        <a class="active" href="#">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="contact-container">
+    <div>
+      <h1 class="contact-title">Get in Touch</h1>
+      <p class="contact-subtitle">Let’s collaborate, discuss ideas or work together.</p>
+      <p class="contact-text">
+        Whether you have a project idea, need a backend developer, or just want to
+        say hello – feel free to reach out.
+      </p>
+
+      <div class="info-row">
+        <span class="info-label">Email: </span>
+        <span class="info-value">tumhara-gmail@gmail.com</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Location: </span>
+        <span class="info-value">India</span>
+      </div>
+
+      <div style="margin-top:1rem;">
+        <span class="info-label">Socials:</span>
+        <div class="social-links">
+          <a href="https://github.com/samraddhi-sri" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/smraddhi-srivastava-812645363" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/sam_sriii_?igsh=MWxhaGVvOWlkYXBldw==" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrapper">
+      <h2 class="form-title">Send me a message</h2>
+      <p class="form-subtext">Fill this form and I’ll get back to you.</p>
+
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" required />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Send Message</button>
+        <p id="status" class="status-message"></p>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const statusEl = document.getElementById("status");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      statusEl.textContent = "Sending...";
+      statusEl.className = "status-message";
+
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        subject: form.subject.value.trim(),
+        message: form.message.value.trim(),
+      };
+
+      try {
+        const res = await fetch("/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          statusEl.textContent = "✅ Message sent successfully!";
+          statusEl.className = "status-message status-success";
+          form.reset();
+        } else {
+          statusEl.textContent = "❌ " + (result.msg || "Failed to send message.");
+          statusEl.className = "status-message status-error";
+        }
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = "❌ Something went wrong. Please try again.";
+        statusEl.className = "status-message status-error";
+      }
+    });
+  </script>
+</body>
+</html>
